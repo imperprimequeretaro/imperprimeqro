@@ -62,14 +62,33 @@ color:#8b0000;
 
 .hero{
 min-height:100vh;
-background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
-url('https://images.unsplash.com/photo-1581090700227-1e8a9f2b8f8e') center/cover;
+position:relative;
 display:flex;
 align-items:center;
 padding:0 8%;
 color:white;
+overflow:hidden;
+}
+.video-bg{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-2;
 }
 
+.hero::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+z-index:-1;
+}
 .hero-content{
 max-width:600px;
 animation:fadeUp 1.2s ease;
@@ -270,7 +289,11 @@ to{opacity:1;transform:translateY(0);}
 </nav>
 </header>
 
+</header>
 <section class="hero">
+<video autoplay muted loop playsinline class="video-bg">
+    <source src="https://raw.githubusercontent.com/imperprimequeretaro/imperprimeqro/main/VIDEO.mp4" type="video/mp4">
+</video>
 <div class="hero-content">
 <h1>Expertos en Impermeabilización y Pintura</h1>
 <p>Experiencia que se ve en la calidad. Garantía que se siente con el tiempo</p>
