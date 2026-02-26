@@ -281,7 +281,39 @@ z-index:9999;
 }
 
 /* FOOTER */
+/* FRANJA FINAL CONTACTO */
 
+.contact-bar{
+background:#000;
+color:white;
+padding:25px 8%;
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+font-size:16px;
+}
+
+.contact-bar a{
+color:white;
+text-decoration:none;
+display:flex;
+align-items:center;
+gap:8px;
+transition:.3s;
+}
+
+.contact-bar a:hover{
+color:#d6c2a6;
+}
+
+.contact-bar i{
+color:#d6c2a6;
+font-size:18px;
+}
+
+
+  
 footer{
 background:#111;
 color:#aaa;
@@ -356,6 +388,8 @@ to{opacity:1;transform:translateY(0);}
 70%{box-shadow:0 0 0 15px rgba(37,211,102,0);}
 100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
 }
+
+
 
 </style>
 </head>
@@ -461,6 +495,25 @@ toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
 document.body.style.overflow = "auto";
 });
 });
+<div class="contact-bar">
+
+<a href="tel:+524272045326">
+<i class="fa-solid fa-phone"></i>
+427 204 5326
+</a>
+
+<a href="mailto:imperprimequeretaro@gmail.com">
+<i class="fa-solid fa-envelope"></i>
+imperprimequeretaro@gmail.com
+</a>
+
+<a href="https://www.google.com/maps/search/?api=1&query=San+Juan+del+Río,+Querétaro" target="_blank">
+<i class="fa-solid fa-location-dot"></i>
+San Juan del Río, Querétaro
+</a>
+
+</div>
+  
 </script>
 
 </body>
