@@ -1,438 +1,358 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMPERPRIME Qro | Impermeabilización y Pintura</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IMPERPRIME Qro | Impermeabilización y Pintura</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
 
-        body {
-            background: #f5f5f5;
-            color: #222;
-        }
+body{
+background:#f5f5f5;
+color:#222;
+overflow-x:hidden;
+padding-top:80px;
+}
 
-        /* HEADER */
-        header {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            background: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 8%;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            z-index: 1100;
-        }
+/* HEADER */
 
-        .logo img {
-            height: 50px;
-            width: auto;
-            display: block;
-            object-fit: contain;
-        }
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:80px;
+background:white;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 8%;
+box-shadow:0 2px 10px rgba(0,0,0,.05);
+z-index:1000;
+}
 
-        nav {
-            display: flex;
-        }
+.logo{
+height:55px;
+}
 
-        nav a {
-            margin-left: 25px;
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: .3s;
-        }
+/* HERO */
 
-        nav a:hover {
-            color: #8b0000;
-        }
+.hero{
+position:relative;
+min-height:100svh;
+display:flex;
+align-items:center;
+padding:0 8%;
+color:white;
+overflow:hidden;
+}
 
-        .menu-toggle {
-            display: none;
-            font-size: 28px;
-            cursor: pointer;
-            color: #333;
-            z-index: 1200;
-        }
+.video-bg{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:0;
+pointer-events:none;
+}
 
-        /* HERO */
-        .hero {
-            min-height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            padding: 0 8%;
-            color: white;
-            overflow: hidden;
-        }
+.hero::after{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.6);
+z-index:1;
+}
 
-        .video-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
-            pointer-events: none;
-        }
+.hero-content{
+position:relative;
+z-index:2;
+max-width:650px;
+}
 
-        .hero::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 1;
-            pointer-events: none;
-        }
+.hero h1{
+font-size:46px;
+margin-bottom:20px;
+line-height:1.2;
+}
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 600px;
-            animation: fadeUp 1.2s ease;
-        }
+.hero p{
+margin-bottom:30px;
+font-size:18px;
+}
 
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
+.btn{
+background:#8b0000;
+color:white;
+padding:18px 40px;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+display:inline-block;
+transition:.3s;
+}
 
-        .hero p {
-            margin-bottom: 30px;
-            font-size: 18px;
-        }
+.btn:hover{
+background:#a00000;
+transform:translateY(-3px);
+}
 
-        .btn {
-            background: #8b0000;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: .3s;
-            text-decoration: none;
-            display: inline-block;
-        }
+/* SERVICIOS */
 
-        .btn:hover {
-            background: #a00000;
-            transform: translateY(-3px);
-        }
+.servicios{
+padding:100px 8%;
+background:white;
+text-align:center;
+}
 
-        /* SERVICES */
-        .services {
-            padding: 100px 8%;
-            text-align: center;
-            background: #f9f9f9;
-        }
+.servicios h2{
+font-size:34px;
+margin-bottom:60px;
+color:#8b0000;
+}
 
-        .services h2 {
-            font-size: 36px;
-            margin-bottom: 50px;
-        }
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
+.card{
+background:#f9f9f9;
+padding:35px;
+border-radius:15px;
+box-shadow:0 15px 30px rgba(0,0,0,.05);
+transition:.3s;
+}
 
-        .card {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, .05);
-            transition: .4s;
-        }
+.card:hover{
+transform:translateY(-8px);
+}
 
-        .card:hover {
-            transform: translateY(-10px);
-        }
+.card i{
+font-size:40px;
+color:#8b0000;
+margin-bottom:20px;
+}
 
-        .card i {
-            font-size: 40px;
-            color: #8b0000;
-            margin-bottom: 20px;
-        }
+.card h3{
+margin-bottom:15px;
+}
 
-        /* CONTACT */
-        .contact {
-            padding: 100px 8%;
-            background: linear-gradient(135deg, #8b0000, #5c0000);
-            color: white;
-            text-align: center;
-        }
+/* CONTACTO CON FORMULARIO */
 
-        .contact h2 {
-            margin-bottom: 40px;
-            font-size: 32px;
-        }
+.contacto{
+padding:100px 8%;
+background:#111;
+color:white;
+}
 
-        form {
-            max-width: 600px;
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+.contacto h2{
+text-align:center;
+margin-bottom:50px;
+font-size:32px;
+}
 
-        input,
-        textarea {
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-        }
+.formulario{
+max-width:600px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:20px;
+}
 
-        textarea {
-            min-height: 120px;
-            resize: none;
-        }
+.formulario input,
+.formulario textarea{
+padding:15px;
+border:none;
+border-radius:8px;
+font-size:16px;
+}
 
-        form button {
-            background: white;
-            color: #8b0000;
-            font-weight: 600;
-            cursor: pointer;
-            transition: .3s;
-        }
+.formulario button{
+background:#8b0000;
+color:white;
+padding:18px;
+border:none;
+border-radius:8px;
+font-size:18px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
 
-        form button:hover {
-            background: #eee;
-        }
+.formulario button:hover{
+background:#a00000;
+}
 
-        /* SOCIAL */
-        .social {
-            position: fixed;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 9999;
-        }
+/* INFO FINAL */
 
-        .social a {
-            background: rgba(0, 0, 0, .6);
-            color: #d6c2a6;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: .3s;
-            text-decoration: none;
-        }
+.info-final{
+margin-top:60px;
+text-align:center;
+font-size:18px;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
 
-        .social a:hover {
-            background: #8b0000;
-            color: white;
-        }
+.info-final i{
+color:#d6c2a6;
+margin-right:8px;
+}
 
-        /* WHATSAPP */
-        .whatsapp {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #25D366;
-            color: white;
-            padding: 15px 20px;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
-            animation: pulse 2s infinite;
-            z-index: 9999;
-        }
+/* REDES */
 
-        footer {
-            background: #111;
-            color: #aaa;
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
-        }
+.social{
+position:fixed;
+left:20px;
+top:50%;
+transform:translateY(-50%);
+display:flex;
+flex-direction:column;
+gap:15px;
+z-index:9999;
+}
 
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
+.social a{
+background:rgba(0,0,0,.6);
+color:#d6c2a6;
+width:45px;
+height:45px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+transition:.3s;
+}
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.social a:hover{
+background:#8b0000;
+color:white;
+}
 
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, .5);
-            }
+/* WHATSAPP */
 
-            70% {
-                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-            }
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px 22px;
+border-radius:50px;
+display:flex;
+align-items:center;
+gap:10px;
+text-decoration:none;
+box-shadow:0 10px 20px rgba(0,0,0,.2);
+animation:pulse 2s infinite;
+z-index:9999;
+}
 
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
-        }
-    </style>
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.05);}
+100%{transform:scale(1);}
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero{
+text-align:center;
+}
+
+.hero h1{
+font-size:28px;
+}
+
+}
+
+</style>
 </head>
-
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <div class="logo">
-            <img src="https://raw.githubusercontent.com/imperprimequeretaro/imperprimeqro/main/logo.png"
-                alt="Imperprime Qro Logo">
-        </div>
+<header>
+<img src="logo.png" class="logo">
+</header>
 
-        <div class="menu-toggle" id="menu-toggle">
-            <i class="fa-solid fa-bars"></i>
-        </div>
+<section class="hero">
+<video autoplay muted loop playsinline class="video-bg">
+<source src="VIDEO.mp4" type="video/mp4">
+</video>
 
-        <nav id="nav">
-            <a href="#">Inicio</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
-    </header>
+<div class="hero-content">
+<h1>Servicios especializados en impermeabilización y pintura</h1>
+<p>Experiencia que se ve en la calidad. Garantía que se siente con el tiempo.</p>
+<a href="#contacto" class="btn">Solicita tu cotización</a>
+</div>
+</section>
 
-    <!-- HERO -->
-    <section class="hero">
-        <video autoplay muted loop playsinline class="video-bg">
-            <source src="https://raw.githubusercontent.com/imperprimequeretaro/imperprimeqro/main/VIDEO.mp4"
-                type="video/mp4">
-        </video>
+<section class="servicios">
+<h2>Nuestros Servicios</h2>
+<div class="cards">
+<div class="card">
+<i class="fa-solid fa-house"></i>
+<h3>Impermeabilización</h3>
+<p>Protección total contra filtraciones y humedad.</p>
+</div>
+<div class="card">
+<i class="fa-solid fa-paint-roller"></i>
+<h3>Pintura Residencial</h3>
+<p>Acabados profesionales para interiores y exteriores.</p>
+</div>
+<div class="card">
+<i class="fa-solid fa-building"></i>
+<h3>Pintura Comercial</h3>
+<p>Soluciones duraderas para negocios y empresas.</p>
+</div>
+</div>
+</section>
 
-        <div class="hero-content">
-            <h1>Servicios especializados en impermeabilización y pintura</h1>
-            <p>Experiencia que se ve en la calidad. Garantía que se siente con el tiempo</p>
-            <a href="#contacto" class="btn">Solicita tu cotización</a>
-        </div>
-    </section>
+<section class="contacto" id="contacto">
+<h2>Solicita Información</h2>
 
-    <!-- SERVICES -->
-    <section class="services" id="servicios">
-        <h2>Nuestros Servicios</h2>
+<form class="formulario">
+<input type="text" placeholder="Nombre completo" required>
+<input type="tel" placeholder="Teléfono" required>
+<input type="email" placeholder="Correo electrónico" required>
+<textarea rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+<button type="submit">Enviar Información</button>
+</form>
 
-        <div class="cards">
-            <div class="card">
-                <i class="fa-solid fa-house"></i>
-                <h3>Impermeabilización</h3>
-                <p>Aplicación profesional en techos y azoteas con garantía.</p>
-            </div>
+<div class="info-final">
+<div><i class="fa-solid fa-phone"></i> 427 204 5326</div>
+<div><i class="fa-solid fa-envelope"></i> imperprimequeretaro@gmail.com</div>
+<div><i class="fa-solid fa-location-dot"></i> San Juan del Río, Querétaro</div>
+</div>
 
-            <div class="card">
-                <i class="fa-solid fa-paint-roller"></i>
-                <h3>Pintura Residencial</h3>
-                <p>Acabados elegantes y duraderos para interiores y exteriores.</p>
-            </div>
+</section>
 
-            <div class="card">
-                <i class="fa-solid fa-city"></i>
-                <h3>Pintura Industrial</h3>
-                <p>Soluciones especializadas para naves y estructuras.</p>
-            </div>
-        </div>
-    </section>
+<div class="social">
+<a href="https://wa.me/524272045326" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+<a href="https://www.instagram.com/imperprime_qro" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+<a href="#"><i class="fa-brands fa-facebook"></i></a>
+</div>
 
-    <!-- CONTACT -->
-    <section class="contact" id="contacto">
-        <h2>Solicita tu Cotización</h2>
-
-        <form action="https://formsubmit.co/imperprimequeretaro@gmail.com" method="POST">
-            <input type="text" name="nombre" placeholder="Nombre completo" required>
-            <input type="tel" name="telefono" placeholder="Teléfono" required>
-            <input type="email" name="email" placeholder="Correo electrónico" required>
-            <textarea name="proyecto" placeholder="Describe tu proyecto"></textarea>
-            <input type="hidden" name="_captcha" value="false">
-            <button type="submit">Enviar información</button>
-        </form>
-    </section>
-
-    <!-- SOCIAL -->
-    <div class="social">
-        <a href="https://wa.me/524272045326" target="_blank">
-            <i class="fa-brands fa-whatsapp"></i>
-        </a>
-        <a href="https://www.instagram.com/imperprime_qro" target="_blank">
-            <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a href="https://www.tiktok.com/@imperprime.qro" target="_blank">
-            <i class="fa-brands fa-tiktok"></i>
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=100035172377511" target="_blank">
-            <i class="fa-brands fa-facebook"></i>
-        </a>
-    </div>
-
-    <!-- WHATSAPP BUTTON -->
-    <a href="https://wa.me/524272045326" class="whatsapp" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
-        Contáctanos
-    </a>
-
-    <footer>
-        © 2026 IMPERPRIME Qro. | Todos los derechos reservados.
-    </footer>
-
-    <!-- SCRIPT -->
-    <script>
-        const toggle = document.getElementById("menu-toggle");
-        const nav = document.getElementById("nav");
-        const links = document.querySelectorAll("#nav a");
-
-        toggle.addEventListener("click", () => {
-            nav.classList.toggle("active");
-
-            if (nav.classList.contains("active")) {
-                toggle.innerHTML = '<i class="fa-solid fa-xmark"></i>';
-                document.body.style.overflow = "hidden";
-            } else {
-                toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-                document.body.style.overflow = "auto";
-            }
-        });
-
-        links.forEach(link => {
-            link.addEventListener("click", () => {
-                nav.classList.remove("active");
-                toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-                document.body.style.overflow = "auto";
-            });
-        });
-    </script>
+<a href="https://wa.me/524272045326" class="whatsapp" target="_blank">
+<i class="fa-brands fa-whatsapp"></i> Contáctanos
+</a>
 
 </body>
-
 </html>
