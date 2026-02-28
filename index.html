@@ -179,7 +179,7 @@ margin-bottom:20px;
 margin-bottom:15px;
 }
 
-/* ===== GALERÍA AGREGADA ===== */
+/* GALERÍA */
 
 .galeria{
 padding:100px 8%;
@@ -231,12 +231,6 @@ background:#a00000;
 
 .galeria-btn.prev{ left:0; }
 .galeria-btn.next{ right:0; }
-
-@media(max-width:768px){
-.galeria-track img{
-width:100%;
-}
-}
 
 /* CONTACTO */
 
@@ -381,6 +375,18 @@ transition:.5s;
 nav.active{transform:translateY(0);}
 nav a{font-size:26px;}
 
+/* ===== AJUSTE GALERÍA MÓVIL (AGREGADO) ===== */
+
+.galeria-track img{
+width:100% !important;
+flex:0 0 100%;
+padding:0;
+}
+
+.galeria-btn{
+display:none;
+}
+
 }
 
 </style>
@@ -430,8 +436,6 @@ nav a{font-size:26px;}
 </div>
 </div>
 </section>
-
-<!-- ===== GALERÍA AGREGADA ===== -->
 
 <section class="galeria">
 <h2>Trabajos Realizados</h2>
@@ -484,6 +488,7 @@ nav a{font-size:26px;}
 </a>
 
 <script>
+
 const toggle = document.getElementById("menu-toggle");
 const nav = document.getElementById("nav");
 const links = document.querySelectorAll("nav a");
@@ -507,7 +512,7 @@ document.body.style.overflow = "auto";
 });
 });
 
-/* ===== SCRIPT GALERÍA ===== */
+/* SCRIPT GALERÍA ORIGINAL */
 
 let posicion = 0;
 
@@ -519,6 +524,46 @@ if(posicion < 0) posicion = total - 1;
 if(posicion >= total) posicion = 0;
 track.style.transform = `translateX(-${posicion * 100}%)`;
 }
+
+/* SWIPE MÓVIL AGREGADO */
+
+if (window.innerWidth <= 768) {
+
+const track = document.getElementById("galeriaTrack");
+const imagenes = track.querySelectorAll("img");
+let totalReal = imagenes.length;
+
+let startX = 0;
+let endX = 0;
+
+track.addEventListener("touchstart", (e) => {
+startX = e.touches[0].clientX;
+});
+
+track.addEventListener("touchmove", (e) => {
+endX = e.touches[0].clientX;
+});
+
+track.addEventListener("touchend", () => {
+
+let diferencia = startX - endX;
+
+if (diferencia > 50) {
+posicion++;
+if (posicion >= totalReal) posicion = 0;
+}
+
+if (diferencia < -50) {
+posicion--;
+if (posicion < 0) posicion = totalReal - 1;
+}
+
+track.style.transform = `translateX(-${posicion * 100}%)`;
+
+});
+
+}
+
 </script>
 
 </body>
