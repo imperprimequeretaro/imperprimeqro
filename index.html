@@ -179,50 +179,63 @@ margin-bottom:20px;
 margin-bottom:15px;
 }
 
-/* GALERÍA */
+/* ===== GALERÍA AGREGADA ===== */
 
 .galeria{
-padding:100px 0;
+padding:100px 8%;
 background:#f5f5f5;
 text-align:center;
-overflow:hidden;
 }
 
 .galeria h2{
 font-size:34px;
-margin-bottom:60px;
+margin-bottom:40px;
 color:#8b0000;
 }
 
-.slider{
-width:100%;
-overflow:hidden;
+.galeria-container{
 position:relative;
+overflow:hidden;
 }
 
-.slide-track{
+.galeria-track{
 display:flex;
-width:calc(300px * 8);
-animation:scroll 30s linear infinite;
+transition:transform .5s ease;
 }
 
-.slide-track img{
-width:300px;
-height:220px;
-object-fit:cover;
-margin:0 15px;
+.galeria-track img{
+width:33.3333%;
+padding:10px;
 border-radius:15px;
-box-shadow:0 15px 30px rgba(0,0,0,.1);
-transition:.3s;
+object-fit:cover;
 }
 
-.slide-track img:hover{
-transform:scale(1.05);
+.galeria-btn{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:#8b0000;
+color:white;
+border:none;
+width:45px;
+height:45px;
+border-radius:50%;
+cursor:pointer;
+font-size:18px;
+z-index:5;
 }
 
-@keyframes scroll{
-0%{ transform:translateX(0); }
-100%{ transform:translateX(-50%); }
+.galeria-btn:hover{
+background:#a00000;
+}
+
+.galeria-btn.prev{ left:0; }
+.galeria-btn.next{ right:0; }
+
+@media(max-width:768px){
+.galeria-track img{
+width:100%;
+}
 }
 
 /* CONTACTO */
@@ -346,17 +359,9 @@ z-index:9999;
 
 @media(max-width:768px){
 
-.hero{
-text-align:center;
-}
-
-.hero h1{
-font-size:28px;
-}
-
-.menu-toggle{
-display:block;
-}
+.hero{text-align:center;}
+.hero h1{font-size:28px;}
+.menu-toggle{display:block;}
 
 nav{
 position:fixed;
@@ -373,13 +378,8 @@ transform:translateY(-100%);
 transition:.5s;
 }
 
-nav.active{
-transform:translateY(0);
-}
-
-nav a{
-font-size:26px;
-}
+nav.active{transform:translateY(0);}
+nav a{font-size:26px;}
 
 }
 
@@ -388,26 +388,21 @@ font-size:26px;
 <body>
 
 <header>
-
 <img src="logo.png" class="logo">
-
 <div class="menu-toggle" id="menu-toggle">
 <i class="fa-solid fa-bars"></i>
 </div>
-
 <nav id="nav">
 <a href="#inicio">Inicio</a>
 <a href="#servicios">Servicios</a>
 <a href="#contacto">Contacto</a>
 </nav>
-
 </header>
 
 <section class="hero" id="inicio">
 <video autoplay muted loop playsinline>
 <source src="VIDEO.mp4" type="video/mp4">
 </video>
-
 <div class="hero-content">
 <h1>Servicios especializados en impermeabilización y pintura</h1>
 <p>Experiencia que se ve en la calidad. Garantía que se siente con el tiempo.</p>
@@ -436,26 +431,34 @@ font-size:26px;
 </div>
 </section>
 
-<!-- GALERÍA AGREGADA -->
+<!-- ===== GALERÍA AGREGADA ===== -->
+
 <section class="galeria">
 <h2>Trabajos Realizados</h2>
-<div class="slider">
-<div class="slide-track">
+<div class="galeria-container">
+
+<button class="galeria-btn prev" onclick="moverGaleria(-1)">
+<i class="fa-solid fa-chevron-left"></i>
+</button>
+
+<div class="galeria-track" id="galeriaTrack">
 <img src="fot1.jpeg">
 <img src="fot2.jpeg">
-<img src="fot3.jpeg">
 <img src="fot4.jpeg">
-<img src="fot1.jpeg">
-<img src="fot2.jpeg">
-<img src="fot3.jpeg">
-<img src="fot4.jpeg">
+<img src="fot5.jpeg">
+<img src="fot6.jpeg">
+<img src="fot7.jpeg">
 </div>
+
+<button class="galeria-btn next" onclick="moverGaleria(1)">
+<i class="fa-solid fa-chevron-right"></i>
+</button>
+
 </div>
 </section>
 
 <section class="contacto" id="contacto">
 <h2>Solicita Información</h2>
-
 <form class="formulario">
 <input type="text" placeholder="Nombre completo" required>
 <input type="tel" placeholder="Teléfono" required>
@@ -463,13 +466,11 @@ font-size:26px;
 <textarea rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
 <button type="submit">Enviar Información</button>
 </form>
-
 <div class="info-final">
 <div><i class="fa-solid fa-phone"></i> 427 204 5326</div>
 <div><i class="fa-solid fa-envelope"></i> imperprimequeretaro@gmail.com</div>
 <div><i class="fa-solid fa-location-dot"></i> San Juan del Río, Querétaro</div>
 </div>
-
 </section>
 
 <div class="social">
@@ -489,7 +490,6 @@ const links = document.querySelectorAll("nav a");
 
 toggle.addEventListener("click", () => {
 nav.classList.toggle("active");
-
 if(nav.classList.contains("active")){
 toggle.innerHTML = '<i class="fa-solid fa-xmark"></i>';
 document.body.style.overflow = "hidden";
@@ -506,6 +506,19 @@ toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
 document.body.style.overflow = "auto";
 });
 });
+
+/* ===== SCRIPT GALERÍA ===== */
+
+let posicion = 0;
+
+function moverGaleria(direccion){
+const track = document.getElementById("galeriaTrack");
+const total = 2;
+posicion += direccion;
+if(posicion < 0) posicion = total - 1;
+if(posicion >= total) posicion = 0;
+track.style.transform = `translateX(-${posicion * 100}%)`;
+}
 </script>
 
 </body>
