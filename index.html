@@ -73,7 +73,7 @@ color:#222;
 
 /* HERO */
 
- .hero{
+.hero{
 position:relative;
 min-height:100vh;
 display:flex;
@@ -83,7 +83,6 @@ color:white;
 overflow:hidden;
 }
 
-/* VIDEO */
 .hero video{
 position:absolute;
 top:0;
@@ -94,7 +93,6 @@ object-fit:cover;
 z-index:-2;
 }
 
-/* FILTRO OSCURO CORRECTO */
 .hero::before{
 content:"";
 position:absolute;
@@ -310,8 +308,6 @@ text-align:center;
 font-size:28px;
 }
 
-/* menú móvil */
-
 .menu-toggle{
 display:block;
 }
@@ -354,15 +350,15 @@ font-size:26px;
 </div>
 
 <nav id="nav">
-<a href="#">Inicio</a>
+<a href="#inicio">Inicio</a>
 <a href="#servicios">Servicios</a>
 <a href="#contacto">Contacto</a>
 </nav>
 
 </header>
 
-<section class="hero">
-<video autoplay muted loop playsinline class="video-bg">
+<section class="hero" id="inicio">
+<video autoplay muted loop playsinline>
 <source src="VIDEO.mp4" type="video/mp4">
 </video>
 
@@ -426,6 +422,7 @@ font-size:26px;
 <script>
 const toggle = document.getElementById("menu-toggle");
 const nav = document.getElementById("nav");
+const links = document.querySelectorAll("nav a");
 
 toggle.addEventListener("click", () => {
 nav.classList.toggle("active");
@@ -437,6 +434,14 @@ document.body.style.overflow = "hidden";
 toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
 document.body.style.overflow = "auto";
 }
+});
+
+links.forEach(link => {
+link.addEventListener("click", () => {
+nav.classList.remove("active");
+toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+document.body.style.overflow = "auto";
+});
 });
 </script>
 
