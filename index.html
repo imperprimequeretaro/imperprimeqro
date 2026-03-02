@@ -148,57 +148,46 @@ background:#fafafa;
 
 .porque-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
 
 .bloque{
-perspective:1000px;
-cursor:pointer;
-}
-
-.bloque-inner{
-position:relative;
-width:100%;
-height:200px;
-transition:transform 0.7s;
-transform-style:preserve-3d;
-}
-
-.bloque.active .bloque-inner{
-transform:rotateY(180deg);
-}
-
-.bloque-front,
-.bloque-back{
-position:absolute;
-width:100%;
-height:100%;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:25px;
-border-radius:16px;
-backface-visibility:hidden;
-box-shadow:0 10px 25px rgba(0,0,0,.1);
-}
-
-.bloque-front{
 background:white;
-font-weight:600;
+padding:22px;
+border-radius:14px;
+box-shadow:0 8px 20px rgba(0,0,0,.06);
+cursor:pointer;
+transition:all .3s ease;
 }
 
-.bloque-back{
+.bloque:hover{
 background:#8b0000;
 color:white;
-transform:rotateY(180deg);
+box-shadow:0 12px 25px rgba(139,0,0,.4);
 }
 
-.bloque.active .bloque-front{
-box-shadow:0 0 20px rgba(139,0,0,.5);
+.bloque h3{
+margin:0;
+font-size:18px;
 }
-  
+
+.bloque p{
+margin-top:15px;
+font-size:14px;
+line-height:1.6;
+display:none;
+}
+
+.bloque.active{
+background:#8b0000;
+color:white;
+box-shadow:0 12px 25px rgba(139,0,0,.5);
+}
+
+.bloque.active p{
+display:block;
+}
 /* SERVICIOS */
 
 .servicios{
@@ -502,6 +491,9 @@ display:none;
 </div>
 </section>
 
+</div>
+</section>
+
 <section class="servicios" id="servicios">
 <h2>Nuestros Servicios</h2>
 <div class="cards">
@@ -666,6 +658,8 @@ bloques.forEach(bloque => {
 
   });
 });
+
+  
 </script>
 
 </body>
