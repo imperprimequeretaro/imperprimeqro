@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impermeabilización | Imperprime Querétaro</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#f4f4f4;
+color:#222;
+}
+
+/* HEADER */
+header{
+background:#8b0000;
+padding:20px 8%;
+color:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+header a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* REDES SOCIALES HEADER */
+.redes a{
+margin-left:15px;
+color:white;
+text-decoration:none;
+font-size:18px;
+}
+
+/* CONTENIDO */
+.contenido{
+padding:80px 8%;
+max-width:1100px;
+margin:auto;
+}
+
+h1{
+color:#8b0000;
+margin-bottom:40px;
+}
+
+.servicios-lista{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
+
+.servicio{
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.servicio:hover{
+background:#8b0000;
+color:white;
+box-shadow:0 12px 25px rgba(139,0,0,.4);
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:30px;
+background:#222;
+color:white;
+margin-top:60px;
+}
+
+/* BOTÓN WHATSAPP */
+.whatsapp{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+color:white;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+text-decoration:none;
+box-shadow:0 8px 20px rgba(0,0,0,.3);
+transition:.3s;
+z-index:1000;
+}
+
+.whatsapp:hover{
+transform:scale(1.1);
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<a href="index.html">← Volver al inicio</a>
+
+<div class="redes">
+<a href="https://facebook.com" target="_blank">Facebook</a>
+<a href="https://instagram.com" target="_blank">Instagram</a>
+</div>
+</header>
+
+<section class="contenido">
+
+<h1>Servicios de Impermeabilización</h1>
+
+<div class="servicios-lista">
+
+<div class="servicio">
+Impermeabilización con sistema prefabricado de fibra de vidrio y poliéster
+</div>
+
+<div class="servicio">
+Impermeabilización acrílica
+</div>
+
+<div class="servicio">
+Impermeabilización en losas nuevas
+</div>
+
+<div class="servicio">
+Reimpermeabilización (retiro y renovación)
+</div>
+
+<div class="servicio">
+Sellado de grietas y puntos críticos
+</div>
+
+<div class="servicio">
+Reparación de filtraciones y goteras
+</div>
+
+<div class="servicio">
+Impermeabilización de azoteas, techumbres y cubiertas industriales
+</div>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 Imperprime Querétaro | Todos los derechos reservados
+</footer>
+
+<!-- BOTÓN WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/521XXXXXXXXXX" target="_blank">
+💬
+</a>
+
+</body>
+</html>
