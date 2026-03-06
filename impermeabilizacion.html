@@ -3,104 +3,92 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Impermeabilización | Imperprime Querétaro</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
 body{
-margin:0;
 font-family:Arial, Helvetica, sans-serif;
-background:#f4f4f4;
-color:#222;
+margin:0;
+background:#f5f5f5;
 }
 
-/* HEADER */
-header{
-background:#8b0000;
-padding:20px 8%;
-color:white;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-header a{
-color:white;
-text-decoration:none;
-font-weight:bold;
-}
-
-/* REDES SOCIALES HEADER */
-.redes a{
-margin-left:15px;
-color:white;
-text-decoration:none;
-font-size:18px;
-}
-
-/* CONTENIDO */
 .contenido{
-padding:80px 8%;
-max-width:1100px;
+max-width:900px;
 margin:auto;
+padding:80px 20px;
 }
 
 h1{
 color:#8b0000;
+text-align:center;
 margin-bottom:40px;
 }
 
-.servicios-lista{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:20px;
-}
-
-.servicio{
+.lista{
 background:white;
-padding:25px;
+padding:40px;
 border-radius:12px;
-box-shadow:0 8px 20px rgba(0,0,0,.08);
-transition:.3s;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
-.servicio:hover{
+.lista ul{
+list-style:none;
+padding:0;
+}
+
+.lista li{
+padding:15px 0;
+border-bottom:1px solid #eee;
+font-size:18px;
+}
+
+.lista li:last-child{
+border:none;
+}
+
+.volver{
+display:block;
+width:200px;
+margin:40px auto;
+text-align:center;
+padding:12px;
 background:#8b0000;
 color:white;
-box-shadow:0 12px 25px rgba(139,0,0,.4);
+border-radius:8px;
+text-decoration:none;
 }
 
-/* FOOTER */
-footer{
-text-align:center;
-padding:30px;
-background:#222;
-color:white;
-margin-top:60px;
+.volver:hover{
+background:#a80000;
 }
 
-/* BOTÓN WHATSAPP */
 .whatsapp{
 position:fixed;
-bottom:25px;
-right:25px;
+bottom:20px;
+right:20px;
 background:#25D366;
 color:white;
-width:60px;
-height:60px;
+font-size:26px;
+padding:14px 16px;
 border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:28px;
-text-decoration:none;
-box-shadow:0 8px 20px rgba(0,0,0,.3);
-transition:.3s;
-z-index:1000;
+box-shadow:0 6px 15px rgba(0,0,0,.2);
 }
 
-.whatsapp:hover{
-transform:scale(1.1);
+.redes{
+text-align:center;
+margin-top:40px;
+}
+
+.redes a{
+color:#8b0000;
+font-size:26px;
+margin:0 10px;
 }
 
 </style>
@@ -108,60 +96,48 @@ transform:scale(1.1);
 
 <body>
 
-<header>
-<a href="index.html">← Volver al inicio</a>
-
-<div class="redes">
-<a href="https://facebook.com" target="_blank">Facebook</a>
-<a href="https://instagram.com" target="_blank">Instagram</a>
-</div>
-</header>
-
-<section class="contenido">
+<div class="contenido">
 
 <h1>Servicios de Impermeabilización</h1>
 
-<div class="servicios-lista">
+<div class="lista">
 
-<div class="servicio">
-Impermeabilización con sistema prefabricado de fibra de vidrio y poliéster
-</div>
+<ul>
 
-<div class="servicio">
-Impermeabilización acrílica
-</div>
+<li>Impermeabilización con sistema prefabricado de fibra de vidrio y poliéster</li>
 
-<div class="servicio">
-Impermeabilización en losas nuevas
-</div>
+<li>Impermeabilización acrílica</li>
 
-<div class="servicio">
-Reimpermeabilización (retiro y renovación)
-</div>
+<li>Impermeabilización en losas nuevas</li>
 
-<div class="servicio">
-Sellado de grietas y puntos críticos
-</div>
+<li>Reimpermeabilización (retiro y renovación)</li>
 
-<div class="servicio">
-Reparación de filtraciones y goteras
-</div>
+<li>Sellado de grietas y puntos críticos</li>
 
-<div class="servicio">
-Impermeabilización de azoteas, techumbres y cubiertas industriales
-</div>
+<li>Reparación de filtraciones y goteras</li>
+
+<li>Impermeabilización de azoteas, techumbres y cubiertas industriales</li>
+
+</ul>
 
 </div>
 
-</section>
+<a href="index.html" class="volver">Volver al inicio</a>
 
-<footer>
-© 2026 Imperprime Querétaro | Todos los derechos reservados
-</footer>
+<div class="redes">
 
-<!-- BOTÓN WHATSAPP -->
-<a class="whatsapp" href="https://wa.me/524272045326" target="_blank">
-💬
+<a href="#"><i class="fa-brands fa-facebook"></i></a>
+
+<a href="#"><i class="fa-brands fa-instagram"></i></a>
+
+<a href="#"><i class="fa-brands fa-tiktok"></i></a>
+
+</div>
+
+</div>
+
+<a href="https://wa.me/524272045326" class="whatsapp">
+<i class="fa-brands fa-whatsapp"></i>
 </a>
 
 </body>
