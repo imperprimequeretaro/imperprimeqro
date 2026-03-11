@@ -204,7 +204,7 @@ color:#8b0000;
 
 .cards{
 display:grid;
-grid-template-columns:repeat(4,1fr);
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
 gap:30px;
 }
 
@@ -414,6 +414,8 @@ z-index:9999;
 
 @media(max-width:768px){
 
+.cards{grid-template-columns:repeat(2,1fr);}
+  
 .hero{text-align:center;}
 .hero h1{font-size:28px;}
 .menu-toggle{display:block;}
