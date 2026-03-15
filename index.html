@@ -678,16 +678,21 @@ document.body.style.overflow = "auto";
 });
 
 /* GALERÍA */
-
 let posicion = 0;
 
 function moverGaleria(direccion){
+
 const track = document.getElementById("galeriaTrack");
-const total = 2;
+const imagenes = track.querySelectorAll("img");
+const total = imagenes.length;
+
 posicion += direccion;
+
 if(posicion < 0) posicion = total - 1;
 if(posicion >= total) posicion = 0;
+
 track.style.transform = `translateX(-${posicion * 100}%)`;
+
 }
 
 /* SWIPE MÓVIL */
