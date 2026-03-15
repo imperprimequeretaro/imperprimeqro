@@ -491,7 +491,7 @@ padding:0;
 }
 
 .galeria-btn{
-display:none;
+display:flex;
 }
 
 .social{
@@ -692,42 +692,7 @@ track.style.transform = `translateX(-${posicion * 100}%)`;
 
 /* SWIPE MÓVIL */
 
-if (window.innerWidth <= 768) {
 
-const track = document.getElementById("galeriaTrack");
-const imagenes = track.querySelectorAll("img");
-let totalReal = imagenes.length;
-
-let startX = 0;
-let endX = 0;
-
-track.addEventListener("touchstart", (e) => {
-startX = e.touches[0].clientX;
-});
-
-track.addEventListener("touchmove", (e) => {
-endX = e.touches[0].clientX;
-});
-
-track.addEventListener("touchend", () => {
-
-let diferencia = startX - endX;
-
-if (diferencia > 50) {
-posicion++;
-if (posicion >= totalReal) posicion = 0;
-}
-
-if (diferencia < -50) {
-posicion--;
-if (posicion < 0) posicion = totalReal - 1;
-}
-
-track.style.transform = `translateX(-${posicion * 100}%)`;
-
-});
-
-}
 
 /* BLOQUES POR QUÉ ELEGIRNOS */
 const bloques = document.querySelectorAll(".bloque");
