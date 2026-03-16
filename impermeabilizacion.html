@@ -66,6 +66,8 @@ border-radius:10px;
 box-shadow:0 6px 15px rgba(0,0,0,.05);
 }
 
+
+  
 /* BOTON VOLVER */
 
 .volver{
@@ -128,9 +130,96 @@ text-decoration:none;
 box-shadow:0 10px 20px rgba(0,0,0,.2);
 }
 
+/* SERVICIOS */
+
+.servicios{
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+.servicio-btn{
+width:100%;
+background:white;
+border:none;
+padding:18px 22px;
+border-radius:12px;
+font-size:18px;
+display:flex;
+align-items:center;
+gap:12px;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 6px 15px rgba(0,0,0,.05);
+}
+
+/* EFECTO ROJO */
+
+.servicio-btn:hover{
+background:#8b0000;
+color:white;
+transform:translateY(-2px);
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.servicio-btn:hover .icono{
+color:white;
+}
+
+/* ICONO */
+
+.icono{
+color:#8b0000;
+font-size:20px;
+}
+
+/* CONTENIDO DESPLEGABLE */
+
+.servicio-contenido{
+max-height:0;
+overflow:hidden;
+transition:max-height .4s ease;
+background:white;
+border-radius:0 0 12px 12px;
+padding:0 22px;
+box-shadow:0 6px 15px rgba(0,0,0,.05);
+}
+
+.servicio-contenido p{
+padding:15px 0;
+font-size:16px;
+}
+  
 </style>
 </head>
 
+<script>
+
+const botones = document.querySelectorAll(".servicio-btn");
+
+botones.forEach(boton => {
+
+boton.addEventListener("click", function(){
+
+const contenido = this.nextElementSibling;
+
+if(contenido.style.maxHeight){
+
+contenido.style.maxHeight = null;
+
+}else{
+
+contenido.style.maxHeight = contenido.scrollHeight + "px";
+
+}
+
+});
+
+});
+
+</script>
+
+  
 <body>
 
 <header>
@@ -141,23 +230,91 @@ box-shadow:0 10px 20px rgba(0,0,0,.2);
 
 <h1>Servicios de impermeabilización</h1>
 
-<ul>
 
-<li>Impermeabilización con sistema prefabricado de fibra de vidrio y poliéster</li>
+<div class="servicios">
+
+<div class="servicio">
+
+<button class="servicio-btn">
+<i class="fa-solid fa-layer-group icono"></i>
+Impermeabilización con sistema prefabricado de fibra de vidrio y poliéster
+</button>
+
+<div class="servicio-contenido">
+<p>Sistema de alta resistencia ideal para azoteas y techos industriales.</p>
+</div>
+</div>
+
+
+ <div class="servicio">
+
+<button class="servicio-btn">
+<i class="fa-solid fa-paint-roller icono"></i>
+Impermeabilización acrílica
+</button>
+
+<div class="servicio-contenido">
+<p>Protección flexible para azoteas residenciales contra filtraciones y humedad.</p>
+</div>
+</div> 
+
+<div class="servicio">
+
+<button class="servicio-btn">
+<i class="fa-solid fa-house icono"></i>
+Impermeabilización en losas nuevas
+</button>
+
+<div class="servicio-contenido">
+<p>Aplicación preventiva para evitar filtraciones en losas recién construidas.</p>
+</div>
+
+</div>
+
+
+
+<div class="servicio">
+<button class="servicio-btn">
+<i class="fa-solid fa-screwdriver-wrench icono"></i>
+Reimpermeabilización (retiro y renovación)
+</button>
+
+<div class="servicio-contenido">
+<p>Retiro del impermeabilizante dañado y aplicación de un nuevo sistema.</p>
+</div>
+</div>
   
-<li>Impermeabilización acrílica</li>
 
-<li>Impermeabilización en losas nuevas</li>
 
-<li>Rempermeabilización (retiro y renovación)</li>
+<div class="servicio">
 
-<li>Sellado de grietas y puntos críticos</li>
+<button class="servicio-btn">
+<i class="fa-solid fa-bolt icono"></i>
+Sellado de grietas
+</button>
 
-<li>Reparación de filtros y goteras</li>
+<div class="servicio-contenido">
+<p>Sellado de grietas y puntos críticos donde se producen filtraciones.</p>
+</div>
 
-<li>Impermeabilización de azoteas, techumbres y cubiertas industriales</li>
+</div>
   
-</ul>
+<div class="servicio">
+
+<button class="servicio-btn">
+<i class="fa-solid fa-droplet icono"></i>
+Reparación de goteras
+</button>
+
+<div class="servicio-contenido">
+<p>Diagnóstico y reparación de filtraciones de agua.</p>
+</div>
+
+</div>
+
+</div>
+  
+
 
 <a href="index.html" class="volver">Volver al inicio</a>
 
