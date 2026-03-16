@@ -193,31 +193,7 @@ font-size:16px;
 </style>
 </head>
 
-<script>
 
-const botones = document.querySelectorAll(".servicio-btn");
-
-botones.forEach(boton => {
-
-boton.addEventListener("click", function(){
-
-const contenido = this.nextElementSibling;
-
-if(contenido.style.maxHeight){
-
-contenido.style.maxHeight = null;
-
-}else{
-
-contenido.style.maxHeight = contenido.scrollHeight + "px";
-
-}
-
-});
-
-});
-
-</script>
 
   
 <body>
@@ -330,5 +306,32 @@ Reparación de goteras
 <i class="fa-brands fa-whatsapp"></i> Contáctanos
 </a>
 
+<script>
+
+const botones = document.querySelectorAll(".servicio-btn");
+
+botones.forEach(boton => {
+
+boton.addEventListener("click", function(){
+
+const contenido = this.nextElementSibling;
+
+if(contenido.style.maxHeight){
+
+contenido.style.maxHeight = null;
+
+}else{
+
+contenido.style.maxHeight = contenido.scrollHeight + "px";
+
+}
+
+});
+
+});
+
+</script>
+
+  
 </body>
 </html>
