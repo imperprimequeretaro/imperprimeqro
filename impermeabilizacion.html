@@ -366,39 +366,6 @@ height:180px;
 
 <h1>Servicios de impermeabilización</h1>
 
-<!-- ENCUESTA -->
-<div class="encuesta">
-<h2>¿Qué problema quieres solucionar?</h2>
-
-<div class="opciones">
-<button onclick="seleccionarServicio('Prefabricado', event)">Prefabricado</button>
-<button onclick="seleccionarServicio('Acrílico', event)">Acrílico</button>
-<button onclick="seleccionarServicio('Losas', event)">Losas</button>
-<button onclick="seleccionarServicio('Reimpermeabilización', event)">Reimpermeabilización</button>
-<button onclick="seleccionarServicio('Grietas', event)">Grietas</button>
-<button onclick="seleccionarServicio('Goteras', event)">Goteras</button>
-</div>
-
-<div class="form-extra" id="formExtra">
-<select id="tipoTecho">
-<option value="">Tipo de techo</option>
-<option>Azotea</option>
-<option>Lámina</option>
-<option>Industrial</option>
-</select>
-
-<select id="urgencia">
-<option value="">Urgencia</option>
-<option>Urgente</option>
-<option>Esta semana</option>
-<option>Sin prisa</option>
-</select>
-
-<input type="text" id="ubicacion" placeholder="Tu ubicación">
-
-<button class="btn-enviar" onclick="enviarWhats()">Enviar por WhatsApp</button>
-</div>
-</div>
 
 <div class="servicios">
 
@@ -473,8 +440,46 @@ Reparación de goteras
 
 <a href="index.html" class="volver">Volver al inicio</a>
 
+<!-- ENCUESTA -->
+<div class="encuesta">
+<h2>¿Qué problema quieres solucionar?</h2>
+
+<div class="opciones">
+<button onclick="seleccionarServicio('Prefabricado', event)">Prefabricado</button>
+<button onclick="seleccionarServicio('Acrílico', event)">Acrílico</button>
+<button onclick="seleccionarServicio('Losas', event)">Losas</button>
+<button onclick="seleccionarServicio('Reimpermeabilización', event)">Reimpermeabilización</button>
+<button onclick="seleccionarServicio('Grietas', event)">Grietas</button>
+<button onclick="seleccionarServicio('Goteras', event)">Goteras</button>
+</div>
+
+<div class="form-extra" id="formExtra">
+<select id="tipoTecho">
+<option value="">Tipo de techo</option>
+<option>Azotea</option>
+<option>Lámina</option>
+<option>Industrial</option>
+</select>
+
+<select id="urgencia">
+<option value="">Urgencia</option>
+<option>Urgente</option>
+<option>Esta semana</option>
+<option>Sin prisa</option>
+</select>
+
+<input type="text" id="ubicacion" placeholder="Tu ubicación">
+
+<button class="btn-enviar" onclick="enviarWhats()">Enviar por WhatsApp</button>
+</div>
+</div>
+
+
+
+  
 </section>
 
+  
 <!-- WHATSAPP -->
 <a href="https://wa.me/524272045326" class="whatsapp" target="_blank">
 <i class="fa-brands fa-whatsapp"></i> Contáctanos
