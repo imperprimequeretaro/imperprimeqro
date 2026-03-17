@@ -232,18 +232,20 @@ border:1px solid #333;
 padding:12px 18px;
 border-radius:8px;
 cursor:pointer;
-  outline: none;
+outline: none;
+appearance: none;
+-webkit-appearance: none;
 }
 
-.opciones button:focus{
+ .opciones button:focus{
   outline: none;
+  box-shadow: none;
 }
 
 .opciones button:active{
   outline: none;
   box-shadow: none;
-}  
-
+} 
 .opciones button:hover,
 .opciones button.activo{
 background:#8b0000;
@@ -532,7 +534,7 @@ servicioSeleccionado=servicio;
 document.getElementById("formExtra").style.display="flex";
 
 document.querySelectorAll(".opciones button").forEach(b=>b.classList.remove("activo"));
-e.target.classList.add("activo");
+e.currentTarget.classList.add("activo");
 }
 
 function enviarWhats(){
