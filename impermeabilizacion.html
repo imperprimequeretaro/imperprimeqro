@@ -202,7 +202,45 @@ box-shadow:0 6px 15px rgba(0,0,0,.15);
 
 }
 
+.encuesta{
+background:#111;
+padding:30px;
+border-radius:14px;
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+margin:40px 0;
+color:white;
+}
 
+.encuesta h2{
+margin-bottom:20px;
+text-align:center;
+}
+
+.opciones{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+justify-content:center;
+margin-bottom:20px;
+}
+
+.opciones button{
+background:#222;
+color:white;
+border:1px solid #333;
+padding:12px 18px;
+border-radius:8px;
+cursor:pointer;
+transition:.3s;
+}
+
+.opciones button:hover{
+background:#8b0000;
+border-color:#8b0000;
+}  
+
+/* FORMULARIO */
+  
 .form-extra{
 margin-top:20px;
 display:flex;
@@ -442,40 +480,52 @@ contenido.style.maxHeight = contenido.scrollHeight + "px";
 let servicioSeleccionado = "";
 
 function seleccionarServicio(servicio){
-
 servicioSeleccionado = servicio;
-
 document.getElementById("formExtra").style.display = "flex";
-
-/* scroll suave */
-
-document.getElementById("formExtra").scrollIntoView({
-behavior:"smooth"
-});
-
 }
 
 function enviarWhats(){
-
-let numero = "524272045326";
 
 let tipoTecho = document.getElementById("tipoTecho").value;
 let urgencia = document.getElementById("urgencia").value;
 let ubicacion = document.getElementById("ubicacion").value;
 
-let mensaje = "Hola, me interesa el servicio de " + servicioSeleccionado + "%0A";
+if(!servicioSeleccionado){
+alert("Selecciona un servicio");
+return;
+}
 
-mensaje += "Tipo de techo: " + tipoTecho + "%0A";
-mensaje += "Urgencia: " + urgencia + "%0A";
-mensaje += "Ubicación: " + ubicacion;
+if(!tipoTecho){
+alert("Selecciona el tipo de techo");
+return;
+}
 
-let url = "https://wa.me/" + numero + "?text=" + mensaje;
+if(!urgencia){
+alert("Selecciona la urgencia");
+return;
+}
+
+if(!ubicacion){
+alert("Escribe tu ubicación");
+return;
+}
+
+let numero = "524272045326";
+
+let mensaje = `Hola, necesito información:
+
+Servicio: ${servicioSeleccionado}
+Tipo de techo: ${tipoTecho}
+Urgencia: ${urgencia}
+Ubicación: ${ubicacion}`;
+
+let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
 
 window.open(url, "_blank");
 
 }
 
-</script> 
+</script>
   
 </body>
 </html>
