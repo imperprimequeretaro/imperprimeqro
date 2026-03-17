@@ -530,11 +530,12 @@ c.style.maxHeight=c.style.maxHeight?null:c.scrollHeight+"px";
 let servicioSeleccionado="";
 
 function seleccionarServicio(servicio,e){
-servicioSeleccionado=servicio;
-document.getElementById("formExtra").style.display="flex";
+  servicioSeleccionado=servicio;
+  document.getElementById("formExtra").style.display="flex";
 
-document.querySelectorAll(".opciones button").forEach(b=>b.classList.remove("activo"));
-e.currentTarget.classList.add("activo");
+  document.querySelectorAll(".opciones button").forEach(b=>b.classList.remove("activo"));
+
+  e.currentTarget.classList.add("activo");
 }
 
 function enviarWhats(){
