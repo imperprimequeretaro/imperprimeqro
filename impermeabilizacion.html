@@ -203,6 +203,35 @@ box-shadow:0 6px 15px rgba(0,0,0,.15);
 }
 
 
+.form-extra{
+margin-top:20px;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.form-extra select,
+.form-extra input{
+padding:12px;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+.btn-enviar{
+background:#25D366;
+color:white;
+border:none;
+padding:14px;
+border-radius:8px;
+cursor:pointer;
+transition:.3s;
+}
+
+.btn-enviar:hover{
+background:#1ebe5d;
+}  
+
+
   @media (max-width:768px){
 
 .servicio-contenido{
@@ -271,7 +300,7 @@ Impermeabilización en losas nuevas
 
 <div class="servicio-contenido">
 <img src="losas.jpg" class="servicio-img">
-<p>Aplicación preventiva para evitar filtraciones en losas recién construidas.</p>
+<p>Aplicación preventiva para evitar filtraciones en losas recién construidas.</p> 
 </div>
 
 </div>
@@ -321,10 +350,53 @@ Reparación de goteras
 
 </div>
   
-
-
 <a href="index.html" class="volver">Volver al inicio</a>
 
+
+
+ <div class="encuesta">
+
+<h2>¿Qué problema quieres solucionar?</h2>
+
+<div class="opciones">
+
+<button onclick="seleccionarServicio('Sistema prefabricado')">Sistema prefabricado</button>
+<button onclick="seleccionarServicio('Impermeabilización acrílica')">Impermeabilización acrílica</button>
+<button onclick="seleccionarServicio('Losas nuevas')">Losas nuevas</button>
+<button onclick="seleccionarServicio('Reimpermeabilización')">Reimpermeabilización</button>
+<button onclick="seleccionarServicio('Grietas')">Grietas</button>
+<button onclick="seleccionarServicio('Goteras')">Goteras</button>
+
+</div>
+
+<!-- FORMULARIO EXTRA -->
+
+<div class="form-extra" id="formExtra" style="display:none;">
+
+<h3>Cuéntanos un poco más</h3>
+
+<select id="tipoTecho">
+<option value="">Tipo de techo</option>
+<option>Azotea</option>
+<option>Techo de lámina</option>
+<option>Techo industrial</option>
+</select>
+
+<select id="urgencia">
+<option value="">Urgencia</option>
+<option>Urgente</option>
+<option>Esta semana</option>
+<option>Sin prisa</option>
+</select>
+
+<input type="text" id="ubicacion" placeholder="Tu ubicación (colonia o ciudad)">
+
+<button class="btn-enviar" onclick="enviarWhats()">Enviar por WhatsApp</button>
+
+</div>
+
+</div> 
+  
 </section>
 
 <div class="social">
@@ -363,6 +435,45 @@ contenido.style.maxHeight = contenido.scrollHeight + "px";
 
 </script>
 
+ <script>
+
+let servicioSeleccionado = "";
+
+function seleccionarServicio(servicio){
+
+servicioSeleccionado = servicio;
+
+document.getElementById("formExtra").style.display = "flex";
+
+/* scroll suave */
+
+document.getElementById("formExtra").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+function enviarWhats(){
+
+let numero = "524272045326";
+
+let tipoTecho = document.getElementById("tipoTecho").value;
+let urgencia = document.getElementById("urgencia").value;
+let ubicacion = document.getElementById("ubicacion").value;
+
+let mensaje = "Hola, me interesa el servicio de " + servicioSeleccionado + "%0A";
+
+mensaje += "Tipo de techo: " + tipoTecho + "%0A";
+mensaje += "Urgencia: " + urgencia + "%0A";
+mensaje += "Ubicación: " + ubicacion;
+
+let url = "https://wa.me/" + numero + "?text=" + mensaje;
+
+window.open(url, "_blank");
+
+}
+
+</script> 
   
 </body>
 </html>
