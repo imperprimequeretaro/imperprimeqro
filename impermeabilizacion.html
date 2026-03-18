@@ -274,14 +274,19 @@ background:#8b0000;
   
 /* FORM */
 .form-extra{
-display:none;
-flex-direction:column;
-gap:10px;
-margin-top:20px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  transition: all 0.4s ease;
 }
-  
+
 .form-extra.activo{
-  display:flex;
+  max-height: 500px; /* suficiente para que se abra */
+  opacity: 1;
 }
 .form-extra select,
 .form-extra input{
@@ -559,11 +564,12 @@ c.style.maxHeight=c.style.maxHeight?null:c.scrollHeight+"px";
 let servicioSeleccionado="";
 
 function seleccionarServicio(servicio,e){
-  servicioSeleccionado=servicio;
-document.getElementById("formExtra").classList.add("activo");
+  servicioSeleccionado = servicio;
+
+  const form = document.getElementById("formExtra");
+  form.classList.add("activo");
 
   document.querySelectorAll(".opciones button").forEach(b=>b.classList.remove("activo"));
-
   e.currentTarget.classList.add("activo");
 }
 
