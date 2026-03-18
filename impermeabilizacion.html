@@ -279,7 +279,10 @@ flex-direction:column;
 gap:10px;
 margin-top:20px;
 }
-
+  
+.form-extra.activo{
+  display:flex;
+}
 .form-extra select,
 .form-extra input{
 padding:12px;
@@ -557,7 +560,7 @@ let servicioSeleccionado="";
 
 function seleccionarServicio(servicio,e){
   servicioSeleccionado=servicio;
-  document.getElementById("formExtra").style.display="flex";
+document.getElementById("formExtra").classList.add("activo");
 
   document.querySelectorAll(".opciones button").forEach(b=>b.classList.remove("activo"));
 
