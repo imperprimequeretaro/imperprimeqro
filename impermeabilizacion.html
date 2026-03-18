@@ -519,6 +519,8 @@ Reparación de goteras
 <button onclick="seleccionarServicio('Goteras', event)">Goteras</button>
 </div>
 
+<div class="form-extra" id="formExtra">
+
 <select id="tipoTecho" required>
   <option value="" disabled selected hidden>Tipo de techo</option>
   <option>Azotea</option>
@@ -527,15 +529,16 @@ Reparación de goteras
 </select>
 
 <select id="urgencia">
-<option value=""disabled selected hidden>Urgencia</option>
-<option>Urgente</option>
-<option>Esta semana</option>
-<option>Sin prisa</option>
+  <option value="" disabled selected hidden>Urgencia</option>
+  <option>Urgente</option>
+  <option>Esta semana</option>
+  <option>Sin prisa</option>
 </select>
 
 <input type="text" id="ubicacion" placeholder="Tu ubicación">
 
 <button class="btn-enviar" onclick="enviarWhats()">Enviar por WhatsApp</button>
+
 </div>
 </div>
 
